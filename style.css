@@ -87,3 +87,7 @@ input[type="range"] {
 .honeypot-field {
     display: none;
 }
+
+.suggestion-link:hover {
+    color: blue;
+}

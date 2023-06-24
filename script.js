@@ -16,6 +16,12 @@ window.onload = function() {
 
     let interestCount = 0;
 
+    let suggestedInterests = ["Current innovations in generative AI",
+        "New AI startups in Silicon Valley",
+        "Startup Events I can attend in Silicon Valley",
+        "New products announcements in web3 space",
+        "New successful Startups created by Solopreneurs"];
+
     // Add the first interest field
     addInterest();
 
@@ -38,6 +44,17 @@ window.onload = function() {
         input.name = 'interest' + interestCount;
         input.required = true;
 
+        // Create the suggestion
+        let suggestion = document.createElement('a');
+        suggestion.style.cursor = "pointer";
+        suggestion.className = 'suggestion-link';
+        suggestion.style.textDecoration = "underline";
+        suggestion.innerHTML = 'Example: ' + suggestedInterests[interestCount-1];
+        suggestion.onclick = function() {
+            input.value = this.innerHTML.replace('Example: ', '');
+            this.style.display = 'none';
+        };
+
         var slider = document.createElement('input');
         var sliderValueLabel = document.createElement('span');
         slider.type = 'range';
@@ -51,8 +68,9 @@ window.onload = function() {
         interestContainer.appendChild(label);
         interestContainer.appendChild(input);
         interestContainer.appendChild(slider);
-        interestsDiv.appendChild(interestContainer);
         interestContainer.appendChild(sliderValueLabel);
+        interestsDiv.appendChild(interestContainer);
+        interestsDiv.appendChild(suggestion);
 
         slider.oninput = function() {
             slider.value = this.value;
