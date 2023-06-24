@@ -32,6 +32,10 @@ window.onload = function() {
     }
 
     function addInterest() {
+        let previousSuggestions = document.getElementsByClassName('suggestion-link');
+        for(let i = 0; i < previousSuggestions.length; i++) {
+            previousSuggestions[i].style.display = 'none';
+        }
         interestCount++;
         var interestContainer = document.createElement('div');
         interestContainer.classList.add('interest-container');
@@ -43,6 +47,9 @@ window.onload = function() {
         input.id = 'interest' + interestCount;
         input.name = 'interest' + interestCount;
         input.required = true;
+
+        // remove previous suggestions
+
 
         // Create the suggestion
         let suggestion = document.createElement('a');
