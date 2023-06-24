@@ -52,7 +52,6 @@
 
   function handleFormSubmit(event) {  // handles form submit without any jquery
     event.preventDefault();           // we are submitting via xhr below
-    console.log("kkr: Form submit called");
     var form = event.target;
     var formData = getFormData(form);
     var data = formData.data;
@@ -60,6 +59,15 @@
     // If a honeypot field is filled, assume it was done so by a spam bot.
     if (formData.honeypot) {
       return false;
+    }
+
+    var formElements = form.querySelector(".form-elements")
+    if (formElements) {
+      formElements.style.display = "none"; // hide form
+    }
+    var thankYouMessage = form.querySelector(".thankyou_message");
+    if (thankYouMessage) {
+      thankYouMessage.style.display = "block";
     }
 
     disableAllButtons(form);
@@ -71,14 +79,6 @@
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
           form.reset();
-          var formElements = form.querySelector(".form-elements")
-          if (formElements) {
-            formElements.style.display = "none"; // hide form
-          }
-          var thankYouMessage = form.querySelector(".thankyou_message");
-          if (thankYouMessage) {
-            thankYouMessage.style.display = "block";
-          }
         }
     };
     // url encode form data for sending as post data
