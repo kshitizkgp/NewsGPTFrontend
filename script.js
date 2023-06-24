@@ -18,7 +18,7 @@ window.onload = function() {
 
     let suggestedInterests = ["Current innovations in generative AI",
         "New AI startups in Silicon Valley",
-        "Startup Events I can attend in Silicon Valley",
+        "Motivational stories about startup founders",
         "New products announcements in web3 space",
         "New successful Startups created by Solopreneurs"];
 
@@ -97,11 +97,11 @@ window.onload = function() {
         }
 
         // Log values to console
-        console.log('Email: ' + email);
-        console.log(interests);
+        // console.log('Email: ' + email);
+        // console.log(interests);
 
         // Call function to write to Google Sheets (placeholder - you would need to implement this with a server-side process)
-        writeToGoogleSheets(email, interests);
+        // writeToGoogleSheets(email, interests);
     }
 }
 
