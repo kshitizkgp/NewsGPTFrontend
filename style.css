@@ -91,3 +91,30 @@ input[type="range"] {
 .suggestion-link:hover {
     color: blue;
 }
+
+#add-interest {
+    display: inline-block;
+    width: auto;    /* adjust width here */
+    /*margin: 20px 0;*/
+    text-align: left; /* align text to the left */
+    float: left;    /* position button to the left */
+}
+
+#subscribe-button {
+    display: inline-block;
+    width: auto;    /* adjust width here */
+    /*margin: 20px 0;*/
+    text-align: left; /* align text to the left */
+    float: left;    /* position button to the left */
+}
+
+.subscribe-container {
+    Display: block;
+    flex-direction: column;
+}
+
+
+
+
+
+
