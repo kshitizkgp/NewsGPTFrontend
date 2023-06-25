@@ -88,6 +88,10 @@ input[type="range"] {
     display: none;
 }
 
+.subscription-entry {
+    display: none;
+}
+
 .suggestion-link:hover {
     color: blue;
 }

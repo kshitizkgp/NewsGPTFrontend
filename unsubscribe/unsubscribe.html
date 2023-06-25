@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsGPT Unsubscription</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<header>
+    <h1>NewsGPT</h1>
+</header>
+
+<main class="container">
+    <section>
+        <form id="un-subscription-form" class="gform pure-form pure-form-stacked" method="POST" action="https://script.google.com/macros/s/AKfycbyE7_3fwwBk9fw-b2Z1dIstfc8nSqWRAMNq4MDYTenH4FD9gdQfgb0Ebe8JJYM9boQQQg/exec">
+            <div class="form-elements">
+                <div id="reason-container">
+                    <h3>Unsubscribing form:</h3>
+                    <label for="UnsubscribeReason">Please help us improve our newsletter by providing the reason for unsubscribing:<span class="required">*</span></label>
+                    <input type="text" id="UnsubscribeReason" name="UnsubscribeReason" required>
+                    <!-- Interest input fields will be dynamically created here -->
+                    <fieldset class="pure-group subscription-entry">
+                        <label for="subscription-entry">Bool to differentiate between subscription vs un-subscription in the same sheet.</label>
+                        <input id="subscription-entry" type="text" name="subscribe" value="False" />
+                    </fieldset>
+                </div>
+                <div class="subscribe-container">
+                    <label for="email">Email:<span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                    <button type="submit" id="subscribe-button" class="form-elements">Unsubscribe</button>
+                </div>
+            </div>
+            <!-- Customise the Thankyou Message People See when they submit the form: -->
+            <div class="thankyou_message" style="display:none;">
+                <h2><em>Sorry</em> to see you go :( <br/>
+                    We hope you re-subscribe to us soon!
+                    </h2>
+            </div>
+        </form>
+        <script data-cfasync="false" src="../form-submission-handler.js"></script>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2023 NewsGPT | All Rights Reserved</p>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

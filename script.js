@@ -16,11 +16,75 @@ window.onload = function() {
 
     let interestCount = 0;
 
-    let suggestedInterests = ["Current innovations in generative AI",
+    let suggestedInterests = [
+        "Current innovations in generative AI",
         "New AI startups in Silicon Valley",
         "Motivational stories about startup founders",
         "New products announcements in web3 space",
-        "New successful Startups created by Solopreneurs"];
+        "New successful Startups created by Solopreneurs",
+        "Cutting-edge developments in quantum computing",
+        "Privacy and security updates in the crypto industry",
+        "Space exploration and new tech in astronomy",
+        "The impact of AI on job market trends",
+        "Biotech breakthroughs in gene editing",
+        "New advancements in augmented reality (AR) and virtual reality (VR)",
+        "Robotics and automation innovations",
+        "Evolution of e-commerce platforms",
+        "Major mergers and acquisitions in the tech sector",
+        "Tech industry's response to climate change",
+        "Progress in electric vehicle technology",
+        "Breakthroughs in energy storage technologies",
+        "Advent of 5G and its societal impact",
+        "Newly published patents from leading tech companies",
+        "Latest research in neural networks and deep learning",
+        "Innovations in healthcare tech",
+        "Promising advancements in renewable energy technologies",
+        "Tech in education: EdTech startups and their solutions",
+        "Emerging trends in user interface (UI) and user experience (UX) design",
+        "The role of technology in sustainable living and eco-innovation",
+        "Advancements in self-driving vehicle technology",
+        "Big data trends and analytics innovations",
+        "Innovations in wearable technology",
+        "The impact of technology on mental health",
+        "Decentralized finance (DeFi) trends",
+        "Tech developments in sports industry",
+        "Progress in holography and 3D display tech",
+        "The future of food: tech in agriculture and food production",
+        "Growth and challenges in SaaS businesses",
+        "Biodiversity and tech: new tools for conservation",
+        "Machine learning applications in everyday life",
+        "Influence of technology on modern art",
+        "Technology's role in disaster response and prevention",
+        "Evolving laws and regulations in tech",
+        "The role of blockchain beyond cryptocurrencies",
+        "Gaming technology and eSport trends",
+        "Tech solutions for accessible and inclusive design",
+        "Development in Internet of Things (IoT)",
+        "How tech is reshaping the music industry",
+        "Innovative construction and architecture technologies",
+        "Tech implications in global politics",
+        "New modes of transport: Hyperloop, drones, etc.",
+        "Trends in nanotechnology",
+        "Future of money: digital currencies and cashless economy",
+        "Tech developments in fitness and wellness",
+        "Influential women in the tech industry",
+        "Updates in voice recognition and speech tech",
+        "Trends in tech investments and venture capital",
+        "Developments in smart home technology",
+        "AI and ethics: Responsible tech development"
+    ];
+
+    function getRandomInterest() {
+        if (suggestedInterests.length > 0) {
+            const index = Math.floor(Math.random() * suggestedInterests.length);
+            const selectedInterest = suggestedInterests[index];
+            // Remove the selected interest from the array to avoid repetition
+            suggestedInterests.splice(index, 1);
+            return selectedInterest;
+        } else {
+            return "No more interests available";
+        }
+    }
 
     // Add the first interest field
     addInterest();
@@ -37,12 +101,12 @@ window.onload = function() {
             previousSuggestions[i].style.display = 'none';
         }
         interestCount++;
-        var interestContainer = document.createElement('div');
+        let interestContainer = document.createElement('div');
         interestContainer.classList.add('interest-container');
 
-        var label = document.createElement('label');
+        let label = document.createElement('label');
         label.innerHTML = 'Interest ' + interestCount + ':<span class="required">*</span>';
-        var input = document.createElement('input');
+        let input = document.createElement('input');
         input.type = 'text';
         input.id = 'interest' + interestCount;
         input.name = 'interest' + interestCount;
@@ -56,14 +120,14 @@ window.onload = function() {
         suggestion.style.cursor = "pointer";
         suggestion.className = 'suggestion-link';
         suggestion.style.textDecoration = "underline";
-        suggestion.innerHTML = 'Example: ' + suggestedInterests[interestCount-1];
+        suggestion.innerHTML = 'Example: ' + getRandomInterest();
         suggestion.onclick = function() {
             input.value = this.innerHTML.replace('Example: ', '');
             this.style.display = 'none';
         };
 
-        var slider = document.createElement('input');
-        var sliderValueLabel = document.createElement('span');
+        let slider = document.createElement('input');
+        let sliderValueLabel = document.createElement('span');
         slider.type = 'range';
         slider.id = 'interest' + interestCount + 'Slider';
         slider.name = 'interest' + interestCount + 'Slider';
@@ -93,22 +157,6 @@ window.onload = function() {
 
     form.onsubmit = function(e) {
         e.preventDefault();
-        var email = document.getElementById('email').value;
-
-        // Create an object to store the interests and their preference scores
-        var interests = {};
-        for (var i = 0; i < interestCount; i++) {
-            var interestName = document.getElementById('interest' + (i + 1)).value;
-            var interestScore = document.getElementById('interest' + (i + 1) + 'Slider').value;
-            interests[interestName] = interestScore;
-        }
-
-        // Log values to console
-        // console.log('Email: ' + email);
-        // console.log(interests);
-
-        // Call function to write to Google Sheets (placeholder - you would need to implement this with a server-side process)
-        // writeToGoogleSheets(email, interests);
     }
 }
 
