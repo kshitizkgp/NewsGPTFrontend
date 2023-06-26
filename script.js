@@ -120,10 +120,10 @@ window.onload = function() {
         let suggestion = document.createElement('a');
         suggestion.style.cursor = "pointer";
         suggestion.className = 'suggestion-link';
-        suggestion.style.textDecoration = "underline";
-        suggestion.innerHTML = 'Example: ' + getRandomInterest();
+        // suggestion.style.textDecoration = "underline";
+        suggestion.innerHTML = 'Click to Add: ' + getRandomInterest();
         suggestion.onclick = function() {
-            input.value = this.innerHTML.replace('Example: ', '');
+            input.value = this.innerHTML.replace('Click to Add: ', '');
             this.style.display = 'none';
         };
 

@@ -65,8 +65,9 @@ label {
 
 .interest-container {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     align-items: center;
+    gap: 15px;
 }
 
 input[type="text"] {
@@ -131,12 +132,6 @@ input[type="range"] {
     display: flex;
     align-items: center;
     gap: 15px;
-}
-
-.interest-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .heading-description{
