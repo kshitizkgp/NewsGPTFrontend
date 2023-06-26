@@ -110,7 +110,6 @@ input[type="range"] {
 #add-interest {
     display: inline-block;
     width: fit-content !important;    /* adjust width here */
-    margin-bottom: 10px;
     text-align: left; /* align text to the left */
     float: left;    /* position button to the left */
 }
