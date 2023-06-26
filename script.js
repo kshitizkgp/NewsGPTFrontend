@@ -53,8 +53,6 @@ window.onload = function() {
         "Growth and challenges in SaaS businesses",
         "Biodiversity and tech: new tools for conservation",
         "Machine learning applications in everyday life",
-        "Influence of technology on modern art",
-        "Technology's role in disaster response and prevention",
         "Evolving laws and regulations in tech",
         "The role of blockchain beyond cryptocurrencies",
         "Gaming technology and eSport trends",
@@ -97,8 +95,10 @@ window.onload = function() {
 
     function addInterest() {
         let previousSuggestions = document.getElementsByClassName('suggestion-link');
+        let previousSuggestionsTexts = document.getElementsByClassName('suggestion-name')
         for(let i = 0; i < previousSuggestions.length; i++) {
             previousSuggestions[i].style.display = 'none';
+            previousSuggestionsTexts[i].style.display = 'none';
         }
         interestCount++;
         let interestContainer = document.createElement('div');
@@ -118,14 +118,27 @@ window.onload = function() {
 
         // Create the suggestion
         let suggestion = document.createElement('a');
-        suggestion.style.cursor = "pointer";
-        suggestion.className = 'suggestion-link';
+        // suggestion.style.cursor = "pointer";
         // suggestion.style.textDecoration = "underline";
-        suggestion.innerHTML = 'Click to Add: ' + getRandomInterest();
-        suggestion.onclick = function() {
-            input.value = this.innerHTML.replace('Click to Add: ', '');
+        suggestion.className = 'suggestion-name';
+        suggestion.innerHTML = 'Example: ' + getRandomInterest() + ',';
+        // suggestion.onclick = function() {
+        //     input.value = this.innerHTML.replace('Click to Add: ', '');
+        //     this.style.display = 'none';
+        // };
+
+        let suggestion_click_to_add = document.createElement('a');
+        suggestion_click_to_add.className = 'suggestion-link';
+        suggestion_click_to_add.style.cursor = "pointer";
+        suggestion_click_to_add.style.marginLeft = "5px"
+        suggestion_click_to_add.style.textDecoration = "underline";
+        suggestion_click_to_add.innerHTML = 'CLICK TO ADD';
+        suggestion_click_to_add.onclick = function() {
+            input.value = suggestion.innerHTML.replace('Example: ', '');
+            suggestion.style.display = 'none';
             this.style.display = 'none';
         };
+
 
         let slider = document.createElement('input');
         let sliderValueLabel = document.createElement('span');
@@ -143,6 +156,7 @@ window.onload = function() {
         interestContainer.appendChild(sliderValueLabel);
         interestsDiv.appendChild(interestContainer);
         interestsDiv.appendChild(suggestion);
+        interestsDiv.appendChild(suggestion_click_to_add);
 
         slider.oninput = function() {
             slider.value = this.value;
@@ -150,9 +164,9 @@ window.onload = function() {
             sliderValueLabel.innerHTML = ' ' + this.value;
         };
 
-        if (interestCount == 5) {
+        if (interestCount === 5) {
             addInterestBtn.style.display = 'none';
-            addInterestBtn.style.margin = 0;
+            addInterestBtn.style.margin = '0';
         }
         // slider.addEventListener('input', function() {
         //     var value = (this.value - this.min) / (this.max - this.min) * 100;
