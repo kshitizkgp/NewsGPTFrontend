@@ -62,8 +62,12 @@
     }
 
     var formElements = form.querySelector(".form-elements")
+    var headingElements = document.querySelector(".heading-description")
     if (formElements) {
       formElements.style.display = "none"; // hide form
+    }
+    if(headingElements){
+      headingElements.style.display = "none"; // hide Heading
     }
     var thankYouMessage = form.querySelector(".thankyou_message");
     if (thankYouMessage) {

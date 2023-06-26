@@ -105,11 +105,12 @@ window.onload = function() {
         interestContainer.classList.add('interest-container');
 
         let label = document.createElement('label');
-        label.innerHTML = 'Interest ' + interestCount + ':<span class="required">*</span>';
+        label.innerHTML = 'Interest-' + interestCount + ':<span class="required">*</span>';
         let input = document.createElement('input');
         input.type = 'text';
         input.id = 'interest' + interestCount;
         input.name = 'interest' + interestCount;
+        input.placeholder ="Enter your interest";
         input.required = true;
 
         // remove previous suggestions
@@ -133,7 +134,7 @@ window.onload = function() {
         slider.name = 'interest' + interestCount + 'Slider';
         slider.min = '0';
         slider.max = '100';
-        slider.value = '50';
+        slider.value = '90';
         sliderValueLabel.innerHTML = ' ' + slider.value;
         sliderValueLabel.id = 'sliderValue' + interestCount;
         interestContainer.appendChild(label);
@@ -148,6 +149,11 @@ window.onload = function() {
             updateSliderColor(this);
             sliderValueLabel.innerHTML = ' ' + this.value;
         };
+
+        if (interestCount == 5) {
+            addInterestBtn.style.display = 'none';
+            addInterestBtn.style.margin = 0;
+        }
         // slider.addEventListener('input', function() {
         //     var value = (this.value - this.min) / (this.max - this.min) * 100;
         //     this.style.background = `linear-gradient(to right, red , yellow  ${value}%, #008000 ${value}%, #008000 100%)`;

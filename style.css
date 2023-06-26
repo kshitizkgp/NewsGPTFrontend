@@ -69,8 +69,19 @@ label {
     align-items: center;
 }
 
-input[type="text"], input[type="email"] {
+input[type="text"] {
     width: 40%; /* Reduced the width */
+    height: 40px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #1a73e8;
+    border-radius: 4px;
+}
+
+input[type="email"] {
+    width: 34%; /* Reduced the width */
+    height: 45px;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
@@ -98,8 +109,8 @@ input[type="range"] {
 
 #add-interest {
     display: inline-block;
-    width: auto;    /* adjust width here */
-    /*margin: 20px 0;*/
+    width: fit-content !important;    /* adjust width here */
+    margin-bottom: 10px;
     text-align: left; /* align text to the left */
     float: left;    /* position button to the left */
 }
@@ -113,8 +124,34 @@ input[type="range"] {
 }
 
 .subscribe-container {
-    Display: block;
+    Display: flex;
     flex-direction: column;
+}
+
+.subscribe-button-container{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.interest-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heading-description{
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+}
+
+.thankyou_message {
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    width: 50%;
 }
 
 
