@@ -20,7 +20,7 @@ header h1, footer p {
 .container {
     width: 80%;
     margin: auto;
-    padding: 50px;
+    /*padding: 50px;*/
     flex: 1;
     background-color: white;
     border-radius: 8px;
@@ -53,6 +53,8 @@ button:hover {
 #interests {
     margin-bottom: 5px;
     filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.3));
+    max-width: 600px;
+    min-width: 400px;
 }
 
 label {
@@ -68,13 +70,13 @@ label {
     display: flex;
     /*justify-content: space-between;*/
     flex-direction: column;
-    width: 35vw !important;
+    width: 100% !important;
     align-items: center;
     margin-top: 20px;
 }
 
 .slider-container {
-    width: 40vw;
+    width: 100%;
     display: flex;
     flex-direction: row !important;
     column-gap: 10px;
@@ -83,7 +85,7 @@ label {
 }
 
 input[type="text"] {
-    width: 30vw; /* Reduced the width */
+    width: 100%; /* Reduced the width */
     height: 40px;
     padding: 12px 20px;
     margin: 8px 0;
@@ -100,6 +102,8 @@ input[type="email"] {
     box-sizing: border-box;
     border: 1px solid #1a73e8;
     border-radius: 4px;
+    max-width: 600px;
+    min-width: 270px;
 }
 
 input[type="range"] {
