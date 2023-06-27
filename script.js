@@ -110,7 +110,7 @@ window.onload = function() {
         input.type = 'text';
         input.id = 'interest' + interestCount;
         input.name = 'interest' + interestCount;
-        input.placeholder ="Enter your interest";
+        input.placeholder ="Enter your interest OR select from options";
         input.required = true;
 
         let dataList = document.getElementById('interests-datalist');
