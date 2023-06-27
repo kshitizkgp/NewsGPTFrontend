@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NewsGPT Subscription</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-DfXDqEAeL3RI3BfJu4mnntzr8jcU1fJT5T1Py9sWhhePzOfqz1ADHJw0sk2llD1o" crossorigin="anonymous">
 </head>
 <body onload="initializeSliders()">
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
@@ -27,18 +28,22 @@
                         <input id="honeypot" type="text" name="honeypot" value="" />
                     </fieldset>
                     <!-- Interest input fields will be dynamically created here -->
+                    <datalist id="interests-datalist"></datalist>
                 </div>
+<!--                <button id="add-interest" class="plus-button"><i class="fas fa-plus"></i></button>-->
+                <button type="button" id="add-interest">Add more</button>
+                <div style="width: 30vw; height: 0px; margin-bottom: 15px;margin-top: 15px;border: 1.00px #E8DFDF solid"></div>
                 <div class="subscribe-container">
                     <fieldset class="pure-group subscription-entry">
                         <label for="subscription-entry">Bool to differentiate between subscription vs un-subscription in the same sheet.</label>
                         <input id="subscription-entry" type="text" name="subscribe" value="True" />
                     </fieldset>
                     <div class="subscribe-button-container">
-                        <button type="button" id="add-interest">Add More Interest</button>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required>
                         <button type="submit" id="subscribe-button" class="form-elements">Subscribe</button>
                     </div>
                 </div>
+
             </div>
             <!-- Customise the Thankyou Message People See when they submit the form: -->
             <div class="thankyou_message" style="display:none;">

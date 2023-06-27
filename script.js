@@ -113,15 +113,27 @@ window.onload = function() {
         input.placeholder ="Enter your interest";
         input.required = true;
 
+        let dataList = document.getElementById('interests-datalist');
+        if (interestCount === 1) {
+            suggestedInterests.forEach(interest => {
+                let option = document.createElement('option');
+                option.value = interest;
+                dataList.appendChild(option);
+            });
+        }
+
+        input.setAttribute('list', 'interests-datalist');
+
         // remove previous suggestions
 
-
+        let suggestionContainer = document.createElement('div');
+        suggestionContainer.classList.add('suggestion-container');
         // Create the suggestion
         let suggestion = document.createElement('a');
         // suggestion.style.cursor = "pointer";
         // suggestion.style.textDecoration = "underline";
         suggestion.className = 'suggestion-name';
-        suggestion.innerHTML = 'Example: ' + getRandomInterest() + ',';
+        suggestion.innerHTML = 'Example: ' + getRandomInterest();
         // suggestion.onclick = function() {
         //     input.value = this.innerHTML.replace('Click to Add: ', '');
         //     this.style.display = 'none';
@@ -139,6 +151,8 @@ window.onload = function() {
             this.style.display = 'none';
         };
 
+        let sliderContainer = document.createElement('div');
+        sliderContainer.classList.add('slider-container');
 
         let slider = document.createElement('input');
         let sliderValueLabel = document.createElement('span');
@@ -150,13 +164,14 @@ window.onload = function() {
         slider.value = '90';
         sliderValueLabel.innerHTML = ' ' + slider.value;
         sliderValueLabel.id = 'sliderValue' + interestCount;
-        interestContainer.appendChild(label);
         interestContainer.appendChild(input);
-        interestContainer.appendChild(slider);
-        interestContainer.appendChild(sliderValueLabel);
+        sliderContainer.appendChild(slider);
+        sliderContainer.appendChild(sliderValueLabel);
+        interestContainer.appendChild(sliderContainer);
         interestsDiv.appendChild(interestContainer);
-        interestsDiv.appendChild(suggestion);
-        interestsDiv.appendChild(suggestion_click_to_add);
+        // suggestionContainer.appendChild(suggestion);
+        // suggestionContainer.appendChild(suggestion_click_to_add);
+        // interestContainer.appendChild(suggestionContainer);
 
         slider.oninput = function() {
             slider.value = this.value;
