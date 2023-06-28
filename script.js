@@ -166,12 +166,12 @@ window.onload = function() {
 
         // Function to handle both mouseover and touchstart events
         function showSliderText() {
-            sliderValueLabel.style.display = 'inline-block';
+            sliderHoverText.style.display = 'inline-block';
         }
 
         // Function to handle both mouseout and touchend events
         function hideSliderText() {
-            sliderValueLabel.style.display = 'none';
+            sliderHoverText.style.display = 'none';
         }
 
 
