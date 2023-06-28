@@ -110,7 +110,7 @@ window.onload = function() {
         input.type = 'text';
         input.id = 'interest' + interestCount;
         input.name = 'interest' + interestCount;
-        input.placeholder ="Enter your interest OR select from options";
+        input.placeholder ="Enter Interest OR Select one";
         input.required = true;
 
         let dataList = document.getElementById('interests-datalist');
@@ -156,17 +156,33 @@ window.onload = function() {
 
         let slider = document.createElement('input');
         let sliderValueLabel = document.createElement('span');
+        let sliderHoverText = document.createElement('span');
         slider.type = 'range';
         slider.id = 'interest' + interestCount + 'Slider';
         slider.name = 'interest' + interestCount + 'Slider';
         slider.min = '0';
         slider.max = '100';
         slider.value = '90';
+
+        slider.addEventListener('mouseover', function() {
+            sliderHoverText.style.display = 'inline-block';
+        });
+
+        slider.addEventListener('mouseout', function() {
+            sliderHoverText.style.display = 'none';
+        });
+
+        sliderHoverText.innerHTML = 'Level of Interest';
+        sliderHoverText.classList.add('slider-text');
+        sliderHoverText.style.display = 'none';
+        sliderHoverText.id = 'sliderValue' + interestCount;
+
         sliderValueLabel.innerHTML = ' ' + slider.value;
         sliderValueLabel.id = 'sliderValue' + interestCount;
         interestContainer.appendChild(input);
         sliderContainer.appendChild(slider);
         sliderContainer.appendChild(sliderValueLabel);
+        sliderContainer.appendChild(sliderHoverText);
         interestContainer.appendChild(sliderContainer);
         interestsDiv.appendChild(interestContainer);
         // suggestionContainer.appendChild(suggestion);

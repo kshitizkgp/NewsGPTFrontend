@@ -20,18 +20,21 @@
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <header>
-    <h1>Your Personal NewsGPT</h1>
+    <h1>Personal NewsGPT</h1>
 </header>
 
 <main class="container">
     <section>
         <div class="form-elements heading-description">
-            <h4 style="letter-spacing:.025em;opacity:.75;font-size:1.125rem;line-height:1.75rem">Only news you value, Nothing else</h4>
-            <p style="letter-spacing:.025em;opacity:.75;font-size:1.125rem;line-height:1.75rem">Dive into tech-focused news, tailored to your interests with our free, concise newsletter. Stay informed intelligently and effortlessly with Personal NewsGPT</p>
+            <h4 style="letter-spacing:.025em;opacity:.75;font-size:1.125rem;line-height:1.75rem;margin-bottom: 5px">Only news you value, Nothing Else</h4>
+            <p style="letter-spacing:.025em;opacity:.75;font-size:1.125rem;line-height:1.75rem">Dive into tech-focused news, tailored to your interests with our free, concise newsletter. <br/> Readers from Google, Microsoft, Meta and more.</p>
         </div>
         <form id="subscription-form" class="gform pure-form pure-form-stacked" method="POST" data-email="belanik.official@gmail.com" action="https://script.google.com/macros/s/AKfycbyE7_3fwwBk9fw-b2Z1dIstfc8nSqWRAMNq4MDYTenH4FD9gdQfgb0Ebe8JJYM9boQQQg/exec">
             <div class="form-elements">
                 <div id="interests">
+                    <div id="interests-tag" style="letter-spacing:.025em;opacity:.75;font-size:1.125rem;line-height:1.75rem;font-weight: bold">
+                        Interests
+                    </div>
                     <fieldset class="pure-group honeypot-field">
                         <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
                         <input id="honeypot" type="text" name="honeypot" value="" />
@@ -40,7 +43,7 @@
                     <datalist id="interests-datalist"></datalist>
                 </div>
 <!--                <button id="add-interest" class="plus-button"><i class="fas fa-plus"></i></button>-->
-                <button type="button" id="add-interest">Add more</button>
+                <button type="button" id="add-interest">Add Interest</button>
                 <div style="width: 90%; height: 0px; margin-bottom: 15px;margin-top: 15px;border: 1.00px #E8DFDF solid"></div>
                 <div class="subscribe-container">
                     <fieldset class="pure-group subscription-entry">
@@ -48,6 +51,9 @@
                         <input id="subscription-entry" type="text" name="subscribe" value="True" />
                     </fieldset>
                     <div class="subscribe-button-container">
+                    <div id="email-tag" style="letter-spacing:.025em;opacity:.75;font-size:1.125rem;line-height:1.75rem;font-weight: bold">
+                        Email-id
+                    </div>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required>
                         <button type="submit" id="subscribe-button" class="form-elements">Subscribe</button>
                     </div>

@@ -18,8 +18,9 @@ header h1, footer p {
 }
 
 .container {
-    width: 80%;
+    width: 100%;
     margin: auto;
+    padding-bottom: 20px;
     /*padding: 50px;*/
     flex: 1;
     background-color: white;
@@ -50,12 +51,6 @@ button:hover {
     box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
 }
 
-#interests {
-    margin-bottom: 5px;
-    filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.3));
-    max-width: 600px;
-    width: 90%;
-}
 
 label {
     color: #1a73e8;
@@ -66,16 +61,8 @@ label {
     color: red;
 }
 
-.interest-container {
-    display: flex;
-    /*justify-content: space-between;*/
-    flex-direction: column;
-    width: 100% !important;
-    align-items: center;
-    margin-top: 20px;
-}
-
 .slider-container {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: row !important;
@@ -84,30 +71,71 @@ label {
     justify-content: center;
 }
 
-input[type="text"] {
-    width: 90%; /* Reduced the width */
-    height: 40px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 1px solid #1a73e8;
-    border-radius: 20px;
+.slider-text {
+    position: absolute;
+    top: -20px; /* Adjust the positioning as needed */
+    left: 50%; /* Adjust the positioning as needed */
+    transform: translateX(-50%);
+    background-color: #f9f9f9;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: none;
 }
 
-input[type="email"] {
-    width: 25vw; /* Reduced the width */
+#interest-slider:hover + .slider-text {
+    display: block;
+}
+
+
+.interest-container {
+    display: flex;
+    /*justify-content: space-between;*/
+    flex-direction: column;
+    width: 100% !important;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 15px
+}
+
+#interests {
+    margin-bottom: 5px;
+    max-width: 600px;
+    width: 90%;
+}
+
+#interests-tag {
+    float: left !important;
+    margin: 0;
+    width: 80%;
+}
+
+#interests > *:not(#interests-tag) {
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
+}
+
+input[type="text"] {
+    width: 90%; /* Reduced the width */
     height: 45px;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border: 1px solid #1a73e8;
-    border-radius: 4px;
+    min-width: 240px;
+}
+
+input[type="email"] {
+    width: 90%; /* Reduced the width */
+    height: 45px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #1a73e8;
     max-width: 600px;
-    min-width: 250px;
+    min-width: 240px;
 }
 
 input[type="range"] {
-    width: 45%; /* Reduced the width */
+    width: 80%; /* Reduced the width */
     height: 25px;
     margin-left: 15px; /* Added some space between the text field and the slider */
 }
@@ -131,6 +159,7 @@ input[type="range"] {
     text-align: left; /* align text to the left */
     float: left;    /* position button to the left */
     margin-bottom: 10px;
+    margin-top: 15px;
 }
 
 .plus-button {
@@ -149,6 +178,7 @@ input[type="range"] {
     /*margin: 20px 0;*/
     text-align: left; /* align text to the left */
     float: left;    /* position button to the left */
+    margin-top: 10px;
 }
 
 .subscribe-container {
@@ -164,10 +194,19 @@ input[type="range"] {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
-    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
+    /*gap: 15px;*/
     width: 100%;
     max-width: 700px;
+}
+
+#email-tag {
+    float: left !important;
+    margin: 0;
+    width: 90%;
+}
+
+.subscribe-button-container > *:not(#email-tag) {
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
 }
 
 @media (max-width: 600px) {
@@ -181,7 +220,7 @@ input[type="range"] {
     margin: auto;
     align-items: center;
     text-align: center;
-    width: 50%;
+    width: 90%;
 }
 
 .thankyou_message {
