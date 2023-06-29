@@ -164,13 +164,23 @@ window.onload = function() {
         slider.max = '100';
         slider.value = '90';
 
-        slider.addEventListener('mouseover', function() {
+        // Function to handle both mouseover and touchstart events
+        function showSliderText() {
             sliderHoverText.style.display = 'inline-block';
-        });
+        }
 
-        slider.addEventListener('mouseout', function() {
+        // Function to handle both mouseout and touchend events
+        function hideSliderText() {
             sliderHoverText.style.display = 'none';
-        });
+        }
+
+
+        // Add event listeners for both mouse and touch events
+        slider.addEventListener('mouseover', showSliderText);
+        slider.addEventListener('touchstart', showSliderText);
+
+        slider.addEventListener('mouseout', hideSliderText);
+        slider.addEventListener('touchend', hideSliderText);
 
         sliderHoverText.innerHTML = 'Level of Interest';
         sliderHoverText.classList.add('slider-text');
