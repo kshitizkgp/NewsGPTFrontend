@@ -1,3 +1,32 @@
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+}
+
 // Function to update the slider color
 function updateSliderColor(progress) {
     let value = (progress.value - progress.min) / (progress.max - progress.min) * 100;
@@ -20,12 +49,56 @@ window.onload = function() {
         "Current innovations in generative AI",
         "New AI startups in Silicon Valley",
         "Motivational stories about startup founders",
-        "The impact of AI on job market trends",
-        "Major mergers and acquisitions in the tech sector",
         "New products announcements in web3 space",
         "New successful Startups created by Solopreneurs",
         "Cutting-edge developments in quantum computing",
         "Privacy and security updates in the crypto industry",
+        "Space exploration and new tech in astronomy",
+        "The impact of AI on job market trends",
+        "Biotech breakthroughs in gene editing",
+        "New advancements in augmented reality (AR) and virtual reality (VR)",
+        "Robotics and automation innovations",
+        "Evolution of e-commerce platforms",
+        "Major mergers and acquisitions in the tech sector",
+        "Tech industry's response to climate change",
+        "Progress in electric vehicle technology",
+        "Breakthroughs in energy storage technologies",
+        "Advent of 5G and its societal impact",
+        "Newly published patents from leading tech companies",
+        "Latest research in neural networks and deep learning",
+        "Innovations in healthcare tech",
+        "Promising advancements in renewable energy technologies",
+        "Tech in education: EdTech startups and their solutions",
+        "Emerging trends in user interface (UI) and user experience (UX) design",
+        "The role of technology in sustainable living and eco-innovation",
+        "Advancements in self-driving vehicle technology",
+        "Big data trends and analytics innovations",
+        "Innovations in wearable technology",
+        "The impact of technology on mental health",
+        "Decentralized finance (DeFi) trends",
+        "Tech developments in sports industry",
+        "Progress in holography and 3D display tech",
+        "The future of food: tech in agriculture and food production",
+        "Growth and challenges in SaaS businesses",
+        "Biodiversity and tech: new tools for conservation",
+        "Machine learning applications in everyday life",
+        "Evolving laws and regulations in tech",
+        "The role of blockchain beyond cryptocurrencies",
+        "Gaming technology and eSport trends",
+        "Tech solutions for accessible and inclusive design",
+        "Development in Internet of Things (IoT)",
+        "How tech is reshaping the music industry",
+        "Innovative construction and architecture technologies",
+        "Tech implications in global politics",
+        "New modes of transport: Hyperloop, drones, etc.",
+        "Trends in nanotechnology",
+        "Future of money: digital currencies and cashless economy",
+        "Tech developments in fitness and wellness",
+        "Influential women in the tech industry",
+        "Updates in voice recognition and speech tech",
+        "Trends in tech investments and venture capital",
+        "Developments in smart home technology",
+        "AI and ethics: Responsible tech development"
     ];
 
     function getRandomInterest() {
@@ -42,11 +115,9 @@ window.onload = function() {
 
     // Add the first interest field
     addInterest();
-    addInterest();
-    addInterest();
 
     addInterestBtn.onclick = function() {
-        if(interestCount < 3) {
+        if(interestCount < 5) {
             addInterest();
         }
     }
@@ -64,33 +135,50 @@ window.onload = function() {
 
         let label = document.createElement('label');
         label.innerHTML = 'Interest-' + interestCount + ':<span class="required">*</span>';
-        let input = document.createElement('select');
-        // input.type = 'text';
+        let input = document.createElement('input');
+        input.type = 'text';
         input.id = 'interest' + interestCount;
         input.name = 'interest' + interestCount;
         input.placeholder ="Enter Interest OR Select one";
         input.required = true;
 
         let dataList = document.getElementById('interests-datalist');
-        suggestedInterests.forEach(interest => {
-            let option = document.createElement('option');
-            option.value = interest;
-            option.text = interest; // Set option text
-            input.appendChild(option); // Append option to the select element
-        });
+        if (interestCount === 1) {
+            suggestedInterests.forEach(interest => {
+                let option = document.createElement('option');
+                option.value = interest;
+                dataList.appendChild(option);
+            });
+        }
 
         input.setAttribute('list', 'interests-datalist');
-        input.addEventListener('change', function() {
-            let selectedOption = this.options[this.selectedIndex];
-            let selectedValue = selectedOption.value;
-            var index = suggestedInterests.indexOf(selectedValue);
-            console.log(index)
-            if (index !== -1) {
-                suggestedInterests.splice(index, 1);
-                console.log(suggestedInterests.length)
-            }
-            // Handle the selected value as needed
-        });
+
+        // remove previous suggestions
+
+        let suggestionContainer = document.createElement('div');
+        suggestionContainer.classList.add('suggestion-container');
+        // Create the suggestion
+        let suggestion = document.createElement('a');
+        // suggestion.style.cursor = "pointer";
+        // suggestion.style.textDecoration = "underline";
+        suggestion.className = 'suggestion-name';
+        suggestion.innerHTML = 'Example: ' + getRandomInterest();
+        // suggestion.onclick = function() {
+        //     input.value = this.innerHTML.replace('Click to Add: ', '');
+        //     this.style.display = 'none';
+        // };
+
+        let suggestion_click_to_add = document.createElement('a');
+        suggestion_click_to_add.className = 'suggestion-link';
+        suggestion_click_to_add.style.cursor = "pointer";
+        suggestion_click_to_add.style.marginLeft = "5px"
+        suggestion_click_to_add.style.textDecoration = "underline";
+        suggestion_click_to_add.innerHTML = 'CLICK TO ADD';
+        suggestion_click_to_add.onclick = function() {
+            input.value = suggestion.innerHTML.replace('Example: ', '');
+            suggestion.style.display = 'none';
+            this.style.display = 'none';
+        };
 
         let sliderContainer = document.createElement('div');
         sliderContainer.classList.add('slider-container');
@@ -104,7 +192,6 @@ window.onload = function() {
         slider.min = '0';
         slider.max = '100';
         slider.value = '90';
-        slider.disabled = true; // Disable the slider element
 
         // Function to handle both mouseover and touchstart events
         function showSliderText() {
@@ -147,7 +234,7 @@ window.onload = function() {
             sliderValueLabel.innerHTML = ' ' + this.value;
         };
 
-        if (interestCount === 3) {
+        if (interestCount === 5) {
             addInterestBtn.style.display = 'none';
             addInterestBtn.style.margin = '0';
         }
@@ -162,5 +249,3 @@ window.onload = function() {
         e.preventDefault();
     }
 }
-
-

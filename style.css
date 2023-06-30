@@ -236,6 +236,33 @@ input[type="range"] {
     align-items: center;
 }
 
+.tryout-text_button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    gap: 0.5em;
+    margin: 30px;
+    color: #686868; /* dark grey */
+    cursor: default;
+}
+
+.tryout-text_button:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.tryout-text_button:hover a {
+    color: black;
+}
+
+.tryout-text,
+.fa-arrow-right {
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+
 
 
 

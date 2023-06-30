@@ -20,6 +20,7 @@
 <body onload="initializeSliders()">
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <header>
     <h1>Personal NewsGPT</h1>
 </header>
@@ -45,10 +46,10 @@
                 </div>
 <!--                <button id="add-interest" class="plus-button"><i class="fas fa-plus"></i></button>-->
                 <button type="button" id="add-interest">Add Interest</button>
-                <div style="width: 90%; height: 0px; margin-bottom: 15px;margin-top: 15px;border: 1.00px #E8DFDF solid"></div>
+                <div style="max-width: 650px; width: 90%; height: 0px; margin-bottom: 15px;margin-top: 15px;border: 1.00px #E8DFDF solid"></div>
                 <div class="subscribe-container">
                     <fieldset class="pure-group subscription-entry">
-                        <label for="subscription-entry">Bool to differentiate between subscription vs un-subscription in the same sheet.</label>
+                        <label for="subscription-entry">Bool.</label>
                         <input id="subscription-entry" type="text" name="subscribe" value="True" />
                     </fieldset>
                     <div class="subscribe-button-container">
@@ -59,7 +60,10 @@
                         <button type="submit" id="subscribe-button" class="form-elements">Subscribe</button>
                     </div>
                 </div>
-
+                <div class="tryout-text_button">
+                    <span onclick="location.href='tryout/seeitfirst.html'" class="tryout-text">Let me see it first </span>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
             </div>
             <!-- Customise the Thankyou Message People See when they submit the form: -->
             <div class="thankyou_message" style="display:none;">
