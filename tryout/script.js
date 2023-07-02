@@ -116,17 +116,17 @@ function formatFinalEmailAsHTML(articles, publishDate = formatDate(new Date())) 
         </style>
     </head>
     <body>
-        <div class= "email-content brand-container">
-            <div>
-                <span style="color:rgb(255,255,255)!important;font-size:30px">N</span>
-                <span style="color:rgb(255,255,255)!important;font-size:30px">e</span>
-                <span style="color:rgb(255,255,255)!important;font-size:30px">w</span>
-                <span style="color:rgb(255,255,255)!important;font-size:30px">s</span>
-                <span style="color:rgb(255,255,255)!important;font-size:30px">G</span>
-                <span style="color:rgb(255,255,255)!important;font-size:30px">P</span>
-                <span style="color:rgb(255,255,255)!important;font-size:30px">T</span>
-            </div>
-        </div>
+<!--        <div class= "email-content brand-container">-->
+<!--            <div>-->
+<!--                <span style="color:rgb(255,255,255)!important;font-size:30px">N</span>-->
+<!--                <span style="color:rgb(255,255,255)!important;font-size:30px">e</span>-->
+<!--                <span style="color:rgb(255,255,255)!important;font-size:30px">w</span>-->
+<!--                <span style="color:rgb(255,255,255)!important;font-size:30px">s</span>-->
+<!--                <span style="color:rgb(255,255,255)!important;font-size:30px">G</span>-->
+<!--                <span style="color:rgb(255,255,255)!important;font-size:30px">P</span>-->
+<!--                <span style="color:rgb(255,255,255)!important;font-size:30px">T</span>-->
+<!--            </div>-->
+<!--        </div>-->
         <h3 class="brand-heading"> <strong> Personalized Newsletter`;
 
     htmlString += ` </strong> </h3> <div class="email-content article-contents">`;
