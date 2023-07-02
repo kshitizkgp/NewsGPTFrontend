@@ -26,6 +26,7 @@ header h1, footer p {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+    overflow-y: auto; /* Add vertical scrollbar if necessary */
 }
 
 h2 {
@@ -208,6 +209,7 @@ input[type="range"] {
     width: 100%;
     max-width: 700px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 #email-tag {
@@ -251,9 +253,17 @@ input[type="range"] {
 
 /* Slideshow container */
 .slideshow-container {
-    max-width: 600px;
     position: relative;
+    max-height: 600px;
+    max-width: 600px;
     margin: auto;
+}
+
+.responsive-image{
+    max-height: 600px;
+    max-width: 600px;
+    width: 100%;
+    height: auto;
 }
 
 /* Hide the images by default */
@@ -360,4 +370,13 @@ input[type="range"] {
 .fa-arrow-left {
     color: inherit;
     transition: color 0.3s ease;
+}
+
+.all-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#email {
+    margin-top: 5px;
 }
