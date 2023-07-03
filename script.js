@@ -94,11 +94,9 @@ window.onload = function() {
     }
 
     function addInterest() {
-        let previousSuggestions = document.getElementsByClassName('suggestion-link');
-        let previousSuggestionsTexts = document.getElementsByClassName('suggestion-name')
+        let previousSuggestions = document.getElementsByClassName('suggestion-container');
         for(let i = 0; i < previousSuggestions.length; i++) {
             previousSuggestions[i].style.display = 'none';
-            previousSuggestionsTexts[i].style.display = 'none';
         }
         interestCount++;
         let interestContainer = document.createElement('div');
@@ -110,7 +108,7 @@ window.onload = function() {
         input.type = 'text';
         input.id = 'interest' + interestCount;
         input.name = 'interest' + interestCount;
-        input.placeholder ="Enter Interest OR Select one";
+        input.placeholder ="Write your interest in plain text";
         input.required = true;
 
         let dataList = document.getElementById('interests-datalist');
@@ -122,7 +120,7 @@ window.onload = function() {
             });
         }
 
-        input.setAttribute('list', 'interests-datalist');
+        // input.setAttribute('list', 'interests-datalist');
 
         // remove previous suggestions
 
@@ -194,16 +192,17 @@ window.onload = function() {
         sliderContainer.appendChild(sliderValueLabel);
         sliderContainer.appendChild(sliderHoverText);
         interestContainer.appendChild(sliderContainer);
+        sliderContainer.style.display = 'none';
         interestsDiv.appendChild(interestContainer);
-        // suggestionContainer.appendChild(suggestion);
+        suggestionContainer.appendChild(suggestion);
         // suggestionContainer.appendChild(suggestion_click_to_add);
-        // interestContainer.appendChild(suggestionContainer);
+        interestContainer.appendChild(suggestionContainer);
 
-        slider.oninput = function() {
-            slider.value = this.value;
-            updateSliderColor(this);
-            sliderValueLabel.innerHTML = ' ' + this.value;
-        };
+        // slider.oninput = function() {
+        //     slider.value = this.value;
+        //     updateSliderColor(this);
+        //     sliderValueLabel.innerHTML = ' ' + this.value;
+        // };
 
         if (interestCount === 5) {
             addInterestBtn.style.display = 'none';
