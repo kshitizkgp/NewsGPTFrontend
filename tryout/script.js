@@ -15,15 +15,19 @@ function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
-    slides[slideIndex-1].style.display = "block";
+    slides[slideIndex - 1].style.display = "block";
     // dots[slideIndex-1].className += " active";
 }
 
@@ -64,8 +68,8 @@ function formatFinalEmailAsHTML(articles, publishDate = formatDate(new Date())) 
             /*body {*/
             /*    font-family: Arial, sans-serif;*/
             /*    display: flex;*/
-            /*    justify-content: center;*/
-            /*    align-items: center;*/
+            /*    !*justify-content: center;*!*/
+            /*    !*align-items: center;*!*/
             /*    height: 100vh;*/
             /*    margin: 0;*/
             /*    background-color: #f0f0f0;*/
@@ -127,9 +131,9 @@ function formatFinalEmailAsHTML(articles, publishDate = formatDate(new Date())) 
 <!--                <span style="color:rgb(255,255,255)!important;font-size:30px">T</span>-->
 <!--            </div>-->
 <!--        </div>-->
-        <h3 class="brand-heading"> <strong> Personalized Newsletter`;
+<!--        <h3 class="brand-heading"> <strong> Personalized Newsletter </strong> </h3> -->`;
 
-    htmlString += ` </strong> </h3> <div class="email-content article-contents">`;
+    htmlString += `<div class="email-content article-contents">`;
 
     articles.forEach(article => {
         htmlString += `<h3 class="article-contents"><a href="${article.url}">${article.title}</a></h3>\n`;
@@ -210,7 +214,7 @@ let emailDiv = document.getElementById('email');
 // Display the output
 emailDiv.innerHTML = output.htmlString;
 
-window.onload = function() {
+window.onload = function () {
     let form = document.getElementById('subscription-form');
     let interestsDiv = document.getElementById('interests');
     let addInterestBtn = document.getElementById('add-interest');
@@ -288,8 +292,8 @@ window.onload = function() {
     // Add the first interest field
     addInterest();
 
-    addInterestBtn.onclick = function() {
-        if(interestCount < 5) {
+    addInterestBtn.onclick = function () {
+        if (interestCount < 5) {
             addInterest();
         }
     }
@@ -297,7 +301,7 @@ window.onload = function() {
     function addInterest() {
         let previousSuggestions = document.getElementsByClassName('suggestion-link');
         let previousSuggestionsTexts = document.getElementsByClassName('suggestion-name')
-        for(let i = 0; i < previousSuggestions.length; i++) {
+        for (let i = 0; i < previousSuggestions.length; i++) {
             previousSuggestions[i].style.display = 'none';
             previousSuggestionsTexts[i].style.display = 'none';
         }
@@ -311,7 +315,7 @@ window.onload = function() {
         input.type = 'text';
         input.id = 'interest' + interestCount;
         input.name = 'interest' + interestCount;
-        input.placeholder ="Enter Interest OR Select one";
+        input.placeholder = "Enter Interest OR Select one";
         input.required = true;
 
         let dataList = document.getElementById('interests-datalist');
@@ -346,7 +350,7 @@ window.onload = function() {
         suggestion_click_to_add.style.marginLeft = "5px"
         suggestion_click_to_add.style.textDecoration = "underline";
         suggestion_click_to_add.innerHTML = 'CLICK TO ADD';
-        suggestion_click_to_add.onclick = function() {
+        suggestion_click_to_add.onclick = function () {
             input.value = suggestion.innerHTML.replace('Example: ', '');
             suggestion.style.display = 'none';
             this.style.display = 'none';
@@ -400,7 +404,7 @@ window.onload = function() {
         // suggestionContainer.appendChild(suggestion_click_to_add);
         // interestContainer.appendChild(suggestionContainer);
 
-        slider.oninput = function() {
+        slider.oninput = function () {
             slider.value = this.value;
             updateSliderColor(this);
             sliderValueLabel.innerHTML = ' ' + this.value;
@@ -417,7 +421,7 @@ window.onload = function() {
         // slider.setAttribute("oninput", "updateSliderColor(this)");
     }
 
-    form.onsubmit = function(e) {
+    form.onsubmit = function (e) {
         e.preventDefault();
     }
 }

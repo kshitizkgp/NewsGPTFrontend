@@ -173,6 +173,7 @@ input[type="range"] {
     float: left; /* position button to the left */
     margin-bottom: 5px;
     margin-top: 5px;
+    color: white;
 }
 
 .plus-button {
@@ -192,6 +193,7 @@ input[type="range"] {
     text-align: left; /* align text to the left */
     float: left; /* position button to the left */
     margin-top: 10px;
+    color: white;
 }
 
 .subscribe-container {
