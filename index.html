@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <header>
     <h1>Personal NewsGPT</h1>
 </header>
@@ -43,22 +44,6 @@
               data-email="belanik.official@gmail.com"
               action="https://script.google.com/macros/s/AKfycbyE7_3fwwBk9fw-b2Z1dIstfc8nSqWRAMNq4MDYTenH4FD9gdQfgb0Ebe8JJYM9boQQQg/exec">
             <div class="form-elements">
-                <div id="interests">
-                    <div id="interests-tag"
-                         style="letter-spacing:.025em;opacity:.75;font-size:1.125rem;line-height:1.75rem;font-weight: bold">
-                        Interests
-                    </div>
-                    <fieldset class="pure-group honeypot-field">
-                        <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field;
-                            must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
-                        <input id="honeypot" type="text" name="honeypot" value=""/>
-                    </fieldset>
-                    <!-- Interest input fields will be dynamically created here -->
-                    <datalist id="interests-datalist"></datalist>
-                </div>
-                <!--                <button id="add-interest" class="plus-button"><i class="fas fa-plus"></i></button>-->
-                <button type="button" id="add-interest">Add Interest</button>
-                <div style="max-width: 650px; width: 90%; height: 0px; margin-bottom: 15px;margin-top: 15px;border: 1.00px #E8DFDF solid"></div>
                 <div class="subscribe-container">
                     <fieldset class="pure-group subscription-entry">
                         <label for="subscription-entry">Bool.</label>
@@ -70,15 +55,41 @@
                             Email-id
                         </div>
                         <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                        <button type="submit" id="subscribe-button" class="form-elements">Subscribe</button>
+                        <div class="customize-check-box">
+                            <label class="customize-check-box-label" for="check"><input type="checkbox" id="check"> I
+                                want to
+                                customize my
+                                newsletter</label>
+                        </div>
                     </div>
                 </div>
+                <div class="top-interest-container">
+                    <div id="interests">
+                        <div id="interests-tag"
+                             style="letter-spacing:.025em;opacity:.75;font-size:1.125rem;line-height:1.75rem;font-weight: bold">
+                            Interests
+                        </div>
+                        <fieldset class="pure-group honeypot-field">
+                            <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text
+                                field;
+                                must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
+                            <input id="honeypot" type="text" name="honeypot" value=""/>
+                        </fieldset>
+                        <!-- Interest input fields will be dynamically created here -->
+                        <datalist id="interests-datalist"></datalist>
+                    </div>
+                </div>
+                <!--                <button id="add-interest" class="plus-button"><i class="fas fa-plus"></i></button>-->
+                <!--                <button type="button" id="add-interest">Add Interest</button>-->
+                <button type="submit" id="subscribe-button" class="form-elements">Subscribe Now</button>
+                <!--                <div style="max-width: 650px; width: 90%; height: 0px; margin-bottom: 15px;margin-top: 15px;border: 1.00px #E8DFDF solid"></div>-->
                 <div class="tryout-text_button">
                     <span onclick="location.href='tryout/seeitfirst.html'"
                           class="tryout-text">Let me see it first </span>
                     <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
+
             <!-- Customise the Thankyou Message People See when they submit the form: -->
             <div class="thankyou_message" style="display:none;">
                 <h2><em>Thanks</em> for Subscribing to us!

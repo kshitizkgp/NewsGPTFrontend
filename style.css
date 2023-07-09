@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;700&display=swap');
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f5f5f5;
@@ -94,30 +96,138 @@ label {
     display: block;
 }
 
+.delete-interest {
+    display: flex;
+    align-items: center;
+    position: absolute; /* Change from relative to absolute */
+    height: 35px;
+    right: 0.5rem; /* Unhide this */
+    /*top: 0rem; !* Add this if you want the button to be exactly on the top right corner of the input box *!*/
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 100;
+    /*opacity: 0;*/
+    width: 35px; /* Make the width same as height */
+    justify-content: center; /* Add this to center the content */
+    top: 10px;
+}
+
+.add-interest {
+    display: flex;
+    align-items: center;
+    /*top: 0rem; !* Add this if you want the button to be exactly on the top right corner of the input box *!*/
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 100;
+    /*opacity: 0;*/
+    justify-content: center; /* Add this to center the content */
+    width: 35px; /* Make the width same as height */
+    height: 35px;
+    color: #841a1a;
+    /*padding-right: 0.1rem;*/
+    font-size: 1rem;
+    /*padding-left: 10px;*/
+    margin: auto;
+    position: relative;
+}
+
+
+.tooltip {
+    display: none;
+    position: absolute;
+    background: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    top: 100%; /* position it below the button */
+    left: 50%; /* center it horizontally */
+    transform: translateX(-50%); /* align center */
+    white-space: nowrap; /* Prevent the text inside from wrapping */
+}
+
+.add-interest-tooltip {
+    display: none;
+    position: absolute;
+    background: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    top: 100%; /* position it below the button */
+    left: 150%; /* center it horizontally */
+    transform: translateX(-50%); /* align center */
+    white-space: nowrap; /* Prevent the text inside from wrapping */
+}
+
+.interest-container:hover .delete-interest {
+    opacity: 1;
+}
+
+.delete-interest .delete-text {
+    color: #841a1a;
+    /*padding-right: 0.1rem;*/
+    font-size: 1rem;
+    /*padding-left: 10px;*/
+}
+
+.delete-interest img {
+    /*padding-left: 10px;*/
+    /*margin: auto 5px;*/
+    filter: invert(8%) sepia(91%) saturate(4481%) hue-rotate(356deg) brightness(93%) contrast(84%);
+}
+
+.add-interest img {
+    /*padding-left: 10px;*/
+    /*margin: auto 5px;*/
+    /*filter: invert(8%) sepia(91%) saturate(4481%) hue-rotate(356deg) brightness(93%) contrast(84%);*/
+}
+
+.delete-interest:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Add a semi-transparent circle */
+}
+
+.add-interest:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Add a semi-transparent circle */
+}
 
 .interest-container {
     display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 99% !important;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    position: relative; /* Add this */
+    justify-content: center;
+}
+
+.interest-container-with-suggestions {
+    /*display: flex;*/
     /*justify-content: space-between;*/
     flex-direction: column;
     width: 100% !important;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 0px;
     margin-bottom: 15px
 }
 
 #interests {
-    margin-bottom: 5px;
-    max-width: 600px;
+    /*margin-bottom: 5px;*/
+    max-width: 630px;
     width: 90%;
 }
 
 #interests-tag {
     float: left !important;
     margin: 0;
-    width: 80%;
+    width: 100% !important;
 }
 
-#interests > *:not(#interests-tag) > *:not(.suggestion-container) {
+#interests > *:not(#interests-tag) > *:not(.suggestion-container) > *:not(.customize-check-box) {
     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
 }
 
@@ -126,14 +236,22 @@ label {
     color: grey;
 }
 
+.input-wrapper {
+    position: relative; /* To use as anchor for absolute position of .delete-interest */
+    width: 94%; /* Adjust the width to your needs */
+}
+
+
 input[type="text"] {
-    width: 90%; /* Reduced the width */
     height: 45px;
+    width: 100%; /* Set your desired width */
+    position: relative; /* Add relative positioning here */
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border: 1px solid #1a73e8;
     min-width: 240px;
+    z-index: 10;
 }
 
 input[type="email"] {
@@ -165,17 +283,6 @@ input[type="range"] {
     color: blue;
 }
 
-#add-interest {
-    /*background-image: url("icons8-plus-100.png");*/
-    display: inline-block;
-    width: fit-content !important; /* adjust width here */
-    text-align: left; /* align text to the left */
-    float: left; /* position button to the left */
-    margin-bottom: 5px;
-    margin-top: 5px;
-    color: white;
-}
-
 .plus-button {
     width: 40px;
     height: 40px;
@@ -196,11 +303,43 @@ input[type="range"] {
     color: white;
 }
 
+input[type="checkbox"] {
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+}
+
+.form-control + .form-control {
+    margin-top: 1em;
+}
+
 .subscribe-container {
     Display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 700px;
+}
+
+.customize-check-box {
+    margin-top: 0.5em;
+    width: 90% !important;
+
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 8px;
+}
+
+.customize-check-box-label {
+    color: black;
+    font-size: 1.01em;
 }
 
 .subscribe-button-container {
@@ -220,7 +359,7 @@ input[type="range"] {
     width: 90%;
 }
 
-.subscribe-button-container > *:not(#email-tag) {
+.subscribe-button-container > *:not(#email-tag) > *:not(.customize-check-box) {
     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
 }
 
@@ -229,7 +368,6 @@ input[type="range"] {
         width: 100%;
     }
 }
-
 
 .heading-description {
     margin: auto;
@@ -276,6 +414,21 @@ input[type="range"] {
     color: inherit;
     transition: color 0.3s ease;
 }
+
+
+.top-interest-container {
+    box-sizing: inherit;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    /*gap: 15px;*/
+    width: 100%;
+    max-width: 700px;
+    margin-top: 10px;
+}
+
 
 
 

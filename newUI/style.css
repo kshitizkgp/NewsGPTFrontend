@@ -1,0 +1,533 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;700&display=swap');
+
+/* SECTION Initial reset */
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    /*outline: 1px dashed blue; !* Debugging purposes*/
+}
+
+/* SECTION Background */
+
+body,
+.background-stretch {
+    font-family: 'Comfortaa', cursive;
+    min-height: 100vh;
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+.background,
+.background-morning {
+    background: #f3904f; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+            to bottom,
+            #3b4371,
+            #f3904f
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+            to bottom,
+            #3b4371,
+            #f3904f
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.background-afternoon {
+    background: #1a2a6c; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+            to bottom,
+            #fdbb2d,
+            #b21f1f,
+            #1a2a6c
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+            to bottom,
+            #fdbb2d,
+            #b21f1f,
+            #1a2a6c
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.background-night {
+    background: #c33764; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+            to bottom,
+            #1d2671,
+            #c33764
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+            to bottom,
+            #1d2671,
+            #c33764
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* SECTION ToDo container */
+
+.todo {
+    position: relative;
+    top: 1vh;
+}
+
+#todo--header {
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0px 30px 12px rgba(0, 0, 0, 0.15);
+}
+
+#todo--tasks-list {
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    background-color: white;
+    box-shadow: 0px 30px 12px rgba(0, 0, 0, 0.15);
+    overflow-x: hidden; /* hide delete buttons */
+    overflow-y: auto;
+}
+
+/* ToDo shapes and shadows */
+
+[id^='sheet-'] {
+    margin: auto;
+    border-radius: 0 0 10px 10px;
+    -webkit-filter: drop-shadow(0px 30px 12px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0px 30px 12px rgba(0, 0, 0, 0.15));
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=30, Color='#444')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=30, Color='#444')";
+    /* trapezoidal shape */
+    border-bottom: 95px solid white;
+    /*border-left: 5px solid transparent;*/
+    /*border-right: 5px solid transparent;*/
+}
+
+#sheet-1-3d {
+    width: 90%;
+    max-width: 600px;
+    height: 95px;
+    margin: auto;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    z-index: 1;
+}
+
+#sheet-2-3d {
+    width: 344px;
+    height: 95px;
+    margin: auto;
+    margin-top: -85px;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    z-index: -1;
+}
+
+#sheet-3-3d {
+    width: 328px;
+    height: 95px;
+    margin: auto;
+    margin-top: -85px;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    z-index: -2;
+}
+
+#sheet-4-3d {
+    width: 312px;
+    height: 95px;
+    margin: auto;
+    margin-top: -85px;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    z-index: -3;
+}
+
+/* SECTION ToDo header */
+
+#todo--header--today {
+    padding-top: 1.75rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-align: center;
+    color: #f3904f;
+}
+
+#todo--header--date {
+    font-size: 0.875rem;
+    text-align: center;
+    color: #f3904f;
+}
+
+/* SECTION ToDo list of tasks */
+
+/* Items */
+
+.todo--tasks-list--item {
+    display: flex;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #6d6d6d;
+    border-bottom: 1px dashed #c9c9c9;
+    list-style: none;
+    position: relative; /* needed for positioning delete button */
+}
+
+/* Checkboxes */
+
+.todo--tasks-list--item--checkbox {
+    flex: 0 0 22px; /* preserve width */
+    height: 22px;
+    background-color: #f5f5f5;
+    border: 1px solid #d5d5d5;
+    border-radius: 50%;
+    margin: auto 15px;
+    cursor: pointer;
+}
+
+.todo--tasks-list--item--checkbox--checked {
+    border: 1px solid black;
+    background: url('../images/check.png') no-repeat center;
+    background-size: 22px 22px;
+    filter: invert(83%) sepia(32%) saturate(6122%) hue-rotate(326deg) brightness(103%) contrast(91%);
+}
+
+/* Item description */
+
+.todo--tasks-list--item--description {
+    flex: 0 0 95%; /* preserve width */
+    padding-top: 1rem;
+    overflow: hidden; /* prevent overflow */
+    height: 100%;
+}
+
+.todo--tasks-list--item--description--checked {
+    color: #6d6d6d;
+    opacity: 50%;
+    text-decoration: line-through;
+}
+
+/* Due dates */
+
+.todo--tasks-list--item--due-date {
+    font-size: 0.7rem;
+    margin-left: 1rem;
+    color: #fff;
+    background-color: darkgray;
+    width: fit-content;
+    border-radius: 5px;
+}
+
+/* Delete buttons */
+
+.delete-task {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    height: 3.5rem;
+    right: -6rem; /* hide the button */
+    /* width: 0; */
+    background-color: #e14949;
+    border-radius: 10px 0 0 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.edit-task {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    height: 3.5rem;
+    left: -3rem; /* hide the button */
+    /* width: 0; */
+    background-color: #e14949;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.delete-task img {
+    margin: auto 5px;
+    filter: invert(8%) sepia(91%) saturate(4481%) hue-rotate(356deg) brightness(93%) contrast(84%);
+}
+
+.edit-task img {
+    margin: auto 5px;
+    filter: invert(8%) sepia(91%) saturate(4481%) hue-rotate(356deg) brightness(93%) contrast(84%);
+}
+
+.delete-task .delete-text {
+    color: #841a1a;
+    padding-right: 0.5rem;
+    font-size: 1rem;
+}
+
+.edit-task .edit-text {
+    color: #841a1a;
+    padding-right: 0.5rem;
+    font-size: 1rem;
+}
+
+li:hover > .delete-task {
+    right: 0rem; /* show full delete button on mobile */
+}
+
+li:hover > .delete-task:hover {
+    /* Increase specificity */
+    right: 0; /* show full delete button */
+}
+
+li:hover > .edit-task {
+    left: 0rem; /* show full delete button on mobile */
+}
+
+li:hover > .edit-task:hover {
+    /* Increase specificity */
+    left: 0; /* show full delete button */
+}
+
+/* SECTION Add task modal */
+
+#todo--footer #add-task {
+    cursor: pointer;
+    width: 44px;
+    margin: auto;
+    padding-top: 10px;
+    filter: invert(83%) sepia(32%) saturate(6122%) hue-rotate(326deg) brightness(103%) contrast(91%);
+    position: relative;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+#todo--footer #add-task:hover {
+    filter: invert(83%) sepia(32%) saturate(6122%) hue-rotate(326deg) brightness(103%) contrast(91%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
+    transform: translateY(-2px);
+}
+
+/* Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10;
+    padding-top: 5rem; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 1rem;
+    border: 1px solid #888;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 5px 15px 10px rgba(0, 0, 0, 0.3);
+}
+
+#input-task {
+    border-radius: 10px;
+    border: 1px solid #c9c9c9;
+    padding-left: 1rem;
+    height: 2rem;
+    display: block;
+    width: 93%;
+    transition: all 0.5s;
+}
+
+#input-task:active,
+#input-task:focus {
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #c9c9c9;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Due date */
+
+.due-date--container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 93%;
+}
+
+#due-date {
+    font-size: 0.8rem;
+    margin: 0 1rem;
+    justify-self: end;
+}
+
+#due-date--input {
+    border-radius: 10px;
+    border: 1px solid #c9c9c9;
+    padding: 5px 2px 5px 5px;
+}
+
+/* Add task button */
+
+#btn-add-task {
+    background-color: #f3904f;
+    color: #a44d13;
+    width: 100px;
+    height: 35px;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: 2px solid #ffb482;
+    font-size: 1rem;
+    transition: all 0.5s;
+    float: left;
+}
+
+#btn-add-task:hover {
+    background-color: #ffb482;
+    color: #a44d13;
+    cursor: pointer;
+}
+
+/* SECTION Background switcher */
+
+#time-of-day {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.25);
+    font-size: 0.7rem;
+    width: 15rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin: 1rem auto 0;
+}
+
+#subscribe-button {
+    display: inline-block;
+    width: auto; /* adjust width here */
+    /*margin: 20px 0;*/
+    text-align: left; /* align text to the left */
+    float: left; /* position button to the left */
+    margin-top: 10px;
+    border-radius: 5px 5px 5px 5px;
+    background-color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+
+.subscribe-container {
+    Display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+}
+
+
+.subscribe-button-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    /*gap: 15px;*/
+    width: 100%;
+    max-width: 700px;
+}
+
+.subscribe-button-container > :not(#email-tag) {
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+}
+
+/* SECTION Footer */
+
+footer {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
+    width: 15rem;
+    margin: 5rem auto;
+    border-radius: 10px;
+    padding: 0.5rem 0;
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+footer p:last-child {
+    margin-top: 1.5rem;
+}
+
+footer a,
+footer a:visited {
+    color: white;
+}
+
+footer a:hover,
+footer a:active {
+    text-decoration-style: dotted;
+    color: #ffb482;
+}
+
+footer img {
+    transition: all 0.2s;
+}
+
+footer a:hover img {
+    -webkit-filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.5));
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=5, Color='#444')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=5, Color='#444')";
+    transform: translateY(-2px);
+}
+
+/* SECTION Mobile first */
+
+@media (min-width: 600px) {
+    .todo {
+        position: relative;
+        top: 10vh;
+    }
+
+    li:hover > .delete-task {
+        right: -3.8rem; /* show 'x' delete button on big screens */
+    }
+
+    .modal-content {
+        width: 600px;
+    }
+
+    footer {
+        width: 25rem;
+    }
+}

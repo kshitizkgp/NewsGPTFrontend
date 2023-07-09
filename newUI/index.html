@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css"/>
+    <title>Mini-Project - ToDo app</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha384-DfXDqEAeL3RI3BfJu4mnntzr8jcU1fJT5T1Py9sWhhePzOfqz1ADHJw0sk2llD1o" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="background">
+<!--<div id="time-of-day">-->
+<!--    <div class="time-of-day&#45;&#45;option">-->
+<!--        <input-->
+<!--                type="radio"-->
+<!--                id="morning"-->
+<!--                name="time-of-day&#45;&#45;background"-->
+<!--                value="morning"-->
+<!--                checked-->
+<!--        />-->
+<!--        <label for="morning">Morning</label>-->
+<!--    </div>-->
+<!--    <div class="time-of-day&#45;&#45;option">-->
+<!--        <input-->
+<!--                type="radio"-->
+<!--                id="afternoon"-->
+<!--                name="time-of-day&#45;&#45;background"-->
+<!--                value="afternoon"-->
+<!--        />-->
+<!--        <label for="afternoon">Afternoon</label>-->
+<!--    </div>-->
+<!--    <div class="time-of-day&#45;&#45;option">-->
+<!--        <input-->
+<!--                type="radio"-->
+<!--                id="night"-->
+<!--                name="time-of-day&#45;&#45;background"-->
+<!--                value="night"-->
+<!--        />-->
+<!--        <label for="night">Night</label>-->
+<!--    </div>-->
+<!--</div>-->
+<main class="todo">
+
+    <div class="new-interest-container">
+        <section id="todo--header">
+            <header>
+                <h1 id="todo--header--today">Interests</h1>
+            </header>
+        </section>
+        <section id="todo--tasks-list">
+            <ul id="todo--tasks-list--items-list">
+                <li class="todo--tasks-list--item">
+                    <div class="todo--tasks-list--item--description">
+                        I am curious about the impact of technology on mental health
+                    </div>
+                    <div class="delete-task">
+                        <img
+                                src="remove.png"
+                                alt=""
+                                width="16px"
+                                height="16px"
+                        /><span class="delete-text">Delete</span>
+                    </div>
+                </li>
+                <li class="todo--tasks-list--item">
+                    <div class="todo--tasks-list--item--description">
+                        I am excited about progress in holography and 3D display tech
+                    </div>
+                    <div class="delete-task">
+                        <img
+                                src="remove.png"
+                                alt=""
+                                width="16px"
+                                height="16px"
+                        /><span class="delete-text">Delete</span>
+                    </div>
+                </li>
+                <li class="todo--tasks-list--item">
+                    <div class="todo--tasks-list--item--description">
+                        I want to learn about the development in Internet of Things (IoT)
+                    </div>
+                    <div class="delete-task">
+                        <img
+                                src="remove.png"
+                                alt=""
+                                width="16px"
+                                height="16px"
+                        /><span class="delete-text">Delete</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <div id="sheet-1-3d">
+            <section id="todo--footer">
+                <div id="add-task">
+                    <img
+                            src="plus.png"
+                            alt="Add a new task"
+                            width="44px"
+                            height="44px"
+                    />
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <input
+                id="input-task"
+                type="text"
+                placeholder="Enter your interest here"
+        />
+        <div class="due-date--container">
+            <button id="btn-add-task">Add</button>
+            <p id="due-date">Due date:</p>
+            <input type="date" id="due-date--input"/>
+        </div>
+    </div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
