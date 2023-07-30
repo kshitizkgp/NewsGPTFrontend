@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-02PXRTFH9L"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-02PXRTFH9L');
-    </script>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WW6QQ7NQ');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NewsGPT Unsubscription</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WW6QQ7NQ"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <header>
@@ -24,16 +36,19 @@
 
 <main class="container">
     <section>
-        <form id="un-subscription-form" class="gform pure-form pure-form-stacked" method="POST" action="https://script.google.com/macros/s/AKfycbyE7_3fwwBk9fw-b2Z1dIstfc8nSqWRAMNq4MDYTenH4FD9gdQfgb0Ebe8JJYM9boQQQg/exec">
+        <form id="un-subscription-form" class="gform pure-form pure-form-stacked" method="POST"
+              action="https://script.google.com/macros/s/AKfycbyE7_3fwwBk9fw-b2Z1dIstfc8nSqWRAMNq4MDYTenH4FD9gdQfgb0Ebe8JJYM9boQQQg/exec">
             <div class="form-elements">
                 <div id="reason-container">
                     <h3>Unsubscribing form:</h3>
-                    <label for="UnsubscribeReason">Please help us improve our newsletter by providing the reason for unsubscribing:<span class="required">*</span></label>
+                    <label for="UnsubscribeReason">Please help us improve our newsletter by providing the reason for
+                        unsubscribing:<span class="required">*</span></label>
                     <input type="text" id="UnsubscribeReason" name="UnsubscribeReason" required>
                     <!-- Interest input fields will be dynamically created here -->
                     <fieldset class="pure-group subscription-entry">
-                        <label for="subscription-entry">Bool to differentiate between subscription vs un-subscription in the same sheet.</label>
-                        <input id="subscription-entry" type="text" name="subscribe" value="False" />
+                        <label for="subscription-entry">Bool to differentiate between subscription vs un-subscription in
+                            the same sheet.</label>
+                        <input id="subscription-entry" type="text" name="subscribe" value="False"/>
                     </fieldset>
                 </div>
                 <div class="subscribe-container">
@@ -46,7 +61,7 @@
             <div class="thankyou_message" style="display:none;">
                 <h2><em>Sorry</em> to see you go :( <br/>
                     We hope you re-subscribe to us soon!
-                    </h2>
+                </h2>
             </div>
         </form>
         <script data-cfasync="false" src="../form-submission-handler.js"></script>
