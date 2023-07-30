@@ -156,6 +156,7 @@ window.onload = function () {
         }
 
         let deleteDiv = document.createElement('div');
+        addInterestDiv.id = 'delete-interest-button'
         deleteDiv.className = "delete-interest";
         deleteDiv.setAttribute("data-tooltip", "Delete");
         // Create the img element
@@ -189,6 +190,7 @@ window.onload = function () {
         });
 
         let addInterestDiv = document.createElement('div');
+        addInterestDiv.id = 'add-interest-button'
         addInterestDiv.className = "add-interest";
         addInterestDiv.setAttribute("data-tooltip", "Add new Interest");
 
