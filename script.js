@@ -156,7 +156,7 @@ window.onload = function () {
         }
 
         let deleteDiv = document.createElement('div');
-        addInterestDiv.id = 'delete-interest-button'
+        deleteDiv.id = 'delete-interest-button'
         deleteDiv.className = "delete-interest";
         deleteDiv.setAttribute("data-tooltip", "Delete");
         // Create the img element
