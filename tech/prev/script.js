@@ -142,7 +142,7 @@ function formatFinalEmailAsHTML(articles, publishDate = formatDate(new Date())) 
 <!--                <span style="color:rgb(255,255,255)!important;font-size:30px">T</span>-->
 <!--            </div>-->
 <!--        </div>-->
-    <h3 class="brand-heading"> <strong> AI Newsletter - <span id="newsletter-date"></span> </strong> </h3> `;
+    <h3 class="brand-heading"> <strong> Tech Newsletter - <span id="newsletter-date"></span> </strong> </h3> `;
 
     htmlString += `<div class="article-contents">`;
 
